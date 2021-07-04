@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="display">一番好きな作品はどれでしょうか？</div>
+    <button id="ginnga">銀河鉄道の夜</button>
+    <button id="oujisama">星の王子さま</button>
+    <button id="alice">不思議の国のアリス</button>
+    <div id="seikai"></div>
+    <div id="fuseikai"></div>
+    <script>
+        const ginnga = document.getElementById("ginnga")
+        const oujisama = document.getElementById("oujisama")
+        const alice = document.getElementById("alice")
+        const seikai = document.getElementsById("seikai")
+      const fuseikai = document.getElementsById("fuseikai")
+        ginnga.onclick = function(){
+            seikai.textContent = "正解です！"
+        } oujisama.onclick = function(){
+            fuseikai.textContent = "残念！不正解です！名作ですよね～"
+        } alice.onclice = function(){
+        fuseikai.textContent = "残念！不正解です！名作ですよね～"
+        }
+    </script>
+  </body>
+</html>
