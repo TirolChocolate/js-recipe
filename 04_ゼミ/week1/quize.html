@@ -14,18 +14,20 @@
     <div id="seikai"></div>
     <div id="fuseikai"></div>
     <script>
-        const ginnga = document.getElementById("ginnga")
-        const oujisama = document.getElementById("oujisama")
-        const alice = document.getElementById("alice")
-        const seikai = document.getElementsById("seikai")
+      const ginnga = document.getElementById("ginnga")
+      const oujisama = document.getElementById("oujisama")
+      const alice = document.getElementById("alice")
+      const seikai = document.getElementsById("seikai")
       const fuseikai = document.getElementsById("fuseikai")
-        ginnga.onclick = function(){
-            seikai.textContent = "正解です！"
-        } oujisama.onclick = function(){
-            fuseikai.textContent = "残念！不正解です！名作ですよね～"
-        } alice.onclice = function(){
+      ginnga.onclick = function() {
+        seikai.textContent = "正解です！"
+      }
+      oujisama.onclick = function() {
         fuseikai.textContent = "残念！不正解です！名作ですよね～"
-        }
+      }
+      alice.onclick = function() {
+        fuseikai.textContent = "残念！不正解です！名作ですよね～"
+      }
     </script>
   </body>
 </html>
