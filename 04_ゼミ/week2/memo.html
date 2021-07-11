@@ -9,38 +9,35 @@
   <body>
     <input id="memo-input"></input>
     <button id="add-button">保存</button>
-    <button id="sort-button">並べ替え</button>
      <div id="memo-container"></div>
     
     <script>
-
     const memoInput=document.getElementById("memo-input")
     const addButton=document.getElementById("add-button")
     const memoContainer=document.getElementById("memo-container")
-    const sortButton=document.getElementById("sort-button")
-    let memos = ["",number]
+ 
+let memos = []
 
-    addButton.onclick=function(){
-        ver now=new Date();
+if (localStorage.memos) {
+  const memosJSON = localStorage.memos
+  memos = JSON.parse(memosJSON)
 
-    ver hour = time.getHours();
-    ver minuite = time.getMinuites();
-    ver second = time.getSeconds();
-    console.dir(memoInput)
-    console.log(memoInput.value)
-    memos.push(memoInput.value)
-    memoContainer.innerHTML= ""
-    for(let i =0; i < memos.length; i++){
-        number = TimeRanges
-    console.log(i)
-    const text= memos[i]
+  for(let i =0; i < memos.length; i++){
+    const text=memos[i]
     const div = document.createElement("div")
-    div.textContent = text
+    div.textContent = memos[i]
     memoContainer.append(div)
-    }
-    }
+  }
+}
 
-    sortButton
+  addButton.onclick=function(){
+  console.dir(memoInput)
+  console.log(memoInput.value)
+  memos.push(memoInput.value)
+  localStorage.memos = JSON.stringify(memos)
+  memoContainer.innerHTML= ""
+}
+
     </script>
     
   </body>
