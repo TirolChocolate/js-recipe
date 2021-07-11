@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WebExpertコーステンプレート</title>
+  </head>
+  <body>
+    <input id="memo-input"></input>
+    <button id="add-button">保存</button>
+    <div id="memo-container"></div>
+    
+    <script>
+    const memoInput=document.getElementById("memo-input")
+    const addButton=document.getElementById("add-button")
+    const memoContainer=document.getElementById("memo-container")
+    
+  addButton.onclick=function(){
+  console.dir(memoInput)
+  console.log(memoInput.value)
+  
+//divタグを作成する
+const addMemo=document.createElement("div")
+//addMemoにmemoInputの値を代入する
+addMemo.textContent = memoInput.value
+//作ったdivタグをmemoContainerに追加する
+memoContainer.append(addMemo)
+}
+
+    </script>
+    
+  </body>
+</html>
