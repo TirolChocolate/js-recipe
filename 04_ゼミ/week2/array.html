@@ -9,29 +9,31 @@
   <body>
     <input id="memo-input"></input>
     <button id="add-button">保存</button>
-    <button id="remove-button"></button>
-    <div id="memo-container"></div>
+     <div id="memo-container"></div>
     
     <script>
     const memoInput=document.getElementById("memo-input")
     const addButton=document.getElementById("add-button")
-    const removeButton=document.getElementsById("remove-button")
     const memoContainer=document.getElementById("memo-container")
-    
-  addButton.onclick=function(){
-  console.dir(memoInput)
-  console.log(memoInput.value)
-  
-//divタグを作成する
-const addMemo=document.createElement("div")
-//addMemoにmemoInputの値を代入する
-addMemo.textContent = memoInput.value
-//作ったdivタグをmemoContainerに追加する
-memoContainer.append(addMemo)
-}
-removeButton.onclick=function(){
+    let memos = []
+
+    addButton.onclick=function(){
     console.dir(memoInput)
-}
+    console.log(memoInput.value)
+    memos.push(memoInput.value)
+    memoContainer.innerHTML= ""
+
+
+    for(let i =0; i < memos.length; i++){
+    console.log(i)
+    const text= memos[i]
+    const div = document.createElement("div")
+    div.textContent = text
+    memoContainer.append(div)
+
+    }
+
+    }
 
     </script>
     
