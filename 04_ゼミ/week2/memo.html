@@ -4,41 +4,91 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>WebExpertコーステンプレート</title>
+    <title>メモ帳</title>
   </head>
   <body>
-    <input id="memo-input"></input>
+    <input id="memo-input" />
     <button id="add-button">保存</button>
-     <div id="memo-container"></div>
-    
+    <button id="remove-all-button">一括削除</button>
+    <button id="sort-button">並べ替え</button>
+    <div id="memo-container"></div>
+    <!-- <button id="remove-button"></button> -->
+    <!-- <div id="test"></div> -->
+
     <script>
-    const memoInput=document.getElementById("memo-input")
-    const addButton=document.getElementById("add-button")
-    const memoContainer=document.getElementById("memo-container")
- 
-let memos = []
+      const memoInput = document.getElementById("memo-input")
+      const addButton = document.getElementById("add-button")
+      const removeAllButton = document.getElementById("remove-all-button")
+      const memoContainer = document.getElementById("memo-container")
+      const sortButton = document.getElementById("sort-button")
+      // const removeButton = document.getElementById("remove-button")
 
-if (localStorage.memos) {
-  const memosJSON = localStorage.memos
-  memos = JSON.parse(memosJSON)
+      let memos = [] // { memo,time }
 
-  for(let i =0; i < memos.length; i++){
-    const text=memos[i]
-    const div = document.createElement("div")
-    div.textContent = memos[i]
-    memoContainer.append(div)
-  }
-}
+      function makeMemos() {
+        memoContainer.innerHTML = ""
+        for (let i = 0; i < memos.length; i++) {
+          const div = document.createElement("div")
+          div.textContent = `No: ${memos[i].id} メモ:${memos[i].memo}  時刻:${memos[i].time}` // { memo:"" time: Date()}
+          const removeButton = document.createElement("button")
+          removeButton.textContent = `削除`
+          memoContainer.append(div)
+          memoContainer.append(removeButton)
+          removeButton.onclick = function Remove() {
+            console.log("remove!")
+            memos.remove(memos)
+          }
+        }
+      }
 
-  addButton.onclick=function(){
-  console.dir(memoInput)
-  console.log(memoInput.value)
-  memos.push(memoInput.value)
-  localStorage.memos = JSON.stringify(memos)
-  memoContainer.innerHTML= ""
-}
+      if (localStorage.memos) {
+        const memosJSON = localStorage.memos
+        memos = JSON.parse(memosJSON)
+        console.log(memos)
+        makeMemos()
+      }
 
+      addButton.onclick = function() {
+        let time = new Date()
+        console.dir(memoInput)
+        console.log(time)
+        console.log(memoInput.value)
+        memos.push({
+          id: memos.length + 1,
+          memo: memoInput.value,
+          time: time.toLocaleString(),
+        })
+        console.log(memos)
+        localStorage.memos = JSON.stringify(memos)
+        makeMemos()
+      }
+
+      removeAllButton.onclick = function() {
+        // if (localStorage.memo) {
+        // for (let i = 0; i < memos.length; i++) {
+        // memoContainer.remove(memos[i])
+        // LocalMemos.remove(memos)
+        // }
+        // }
+      }
+
+      //削除ボタン 方針
+      //1. for文でdivタグを作るのと同時に、削除ボタンも作る
+      //2. 削除ボタンをうごかす
+
+      sortButton.onclick = function() {
+        memos.sort(function(firstEl, secondEl) {
+          if (firstEl.memo < secondEl.memo) {
+            return -1
+          } else if (firstEl.memo > secondEl.memo) {
+            return 1
+          } else {
+            return 0
+          }
+        })
+        //並び替えた配列を画面表示に反映させる
+        makeMemos()
+      }
     </script>
-    
   </body>
 </html>
