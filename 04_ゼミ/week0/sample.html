@@ -10,9 +10,11 @@
     <h1>クイズ</h1>
     <div>私の名前はなんでしょう</div>
     <button id="name">川井沙和</button>
+    <button id="fake">四月一日真実</button>
     <div id="display"></div>
     <script>
       const name = document.getElementById("name")
+      const fake = document.getElementById("fake")
       const display = document.getElementById("display")
       name.onclick = function() {
         display.textContent = "正解"

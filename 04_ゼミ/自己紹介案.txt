@@ -6,5 +6,122 @@
 6.出身地:愛知県/奈良県/神奈川県/大阪府/徳島県
 7.高校の時の部活:文芸部/オーケストラ部/演劇部/吹奏楽部/剣道部
 8.やっているアルバイト:塾講/飲食店(ホールスタッフ)/本屋さん/結婚式場スタッフ/そもそもバイトをしていない
-9.
+9.大学の
 10.やったことのない楽器:クラリネット/ユーフォニアム/ピアノ/チェロ/リコーダー
+
+<script>
+      let answer = []
+
+      const a1 = document.getElementById("q1")
+      const a2 = document.getElementById("q2")
+      const a3 = document.getElementById("q3")
+      const a4 = document.getElementById("q4")
+      const a5 = document.getElementById("q5")
+
+      const Game = document.getElementById("game")
+      const Train = document.getElementById("training")
+      const Walk = document.getElementById("walking")
+      const Karaoke = document.getElementById("karaoke")
+      const Sewing = document.getElementById("sewing")
+      answer[1] = {
+        t: Game,
+        f1: Train,
+        f2: Walk,
+        f3: Karaoke,
+        f4: Sewing,
+      }
+
+      Game.onclick = T(a1)
+      Train.onclick = F(a1)
+      Walk.onclick = F(a1)
+      Karaoke.onclick = F(a1)
+      Sewing.onclick = F(a1)
+
+      const Mole = document.getElementById("mole")
+      const Lizards = document.getElementById("lizards")
+      const Owl = document.getElementById("owl")
+      const Cat = document.getElementById("cat")
+      const Dog = document.getElementById("dog")
+      answer[2] = {
+        t: Cat,
+        f1: Mole,
+        f2: Lizards,
+        f3: Owl,
+        f4: Dog,
+      }
+      Cat.onclick = T(a2)
+      Mole.onclick = F(a2)
+      Lizards.onclick = F(a2)
+      Owl.onclick = F(a2)
+      Dog.onclick = F(a2)
+
+      const Nara = document.getElementById("Nara")
+      const Aichi = document.getElementById("Aichi")
+      const Kanagawa = document.getElementById("Kanagawa")
+      const Hyogo = document.getElementById("Hyogo")
+      const Tokushima = document.getElementById("Tokushima")
+      answer[3] = {
+        t: Aichi,
+        f1: Nara,
+        f2: Kanagawa,
+        f3: Hyogo,
+        f4: Tokushima,
+      }
+      Aichi.onclick = T(a3)
+      Nara.onclick = F(a3)
+      Kanagawa.onclick = F(a3)
+      Hyogo.onclick = F(a3)
+      Tokushima.onclick = F(a3)
+
+      const Write = document.getElementById("Write")
+      const Orchestra = document.getElementById("Orchestra")
+      const Act = document.getElementById("Act")
+      const Kendo = document.getElementById("Kendo")
+      const Wind = document.getElementById("Wind")
+      answer[4] = {
+        t: Wind,
+        f1: Kendo,
+        f2: Act,
+        f3: Orchestra,
+        f4: Write,
+      }
+      Wind.onclick = T(a4)
+      Kendo.onclick = F(a4)
+      Act.onclick = F(a4)
+      Orchestra.onclick = F(a4)
+      Write.onclick = F(a4)
+
+      const Cl = document.getElementById("Cl")
+      const Pf = document.getElementById("Pf")
+      const Eu = document.getElementById("Eu")
+      const Rec = document.getElementById("Rec")
+      const Cello = document.getElementById("Vc")
+      answer[5] = {
+        t: Cl,
+        f1: Eu,
+        f2: Pf,
+        f3: Cello,
+        f4: Rec,
+      }
+      Cl.onclick = T(a5)
+      Eu.onclick = F(a5)
+      Pf.onclick = F(a5)
+      Cello.onclick = F(a5)
+      Rec.onclick = F(a5)
+
+      function T(a) {
+        console.log("T")
+        a.textContent = "正解です！"
+      }
+      function F(a) {
+        console.log("F")
+        a.textContent = "残念！不正解です！"
+      }
+
+      // できたらオブジェクトとしてそれぞれを管理したかった
+      // for(let i = 1;i<=5;i++){
+      // answer[i].t.onclck=function(){
+      // console.log("正解です")
+      // }
+      // }
+    </script>
