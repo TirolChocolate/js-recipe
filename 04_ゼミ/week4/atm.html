@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue ATM</title>
+  </head>
+  <body>
+    
+    <section id="app1">
+      <h1>入力画面</h1>
+      <div v-for="AtmMoney">
+        <input type="number" v-model="nyuryokugaku" />
+        <div>入力額：{{ atm.price }}</div>
+        <button v-on:click="nyukin">入金</button>
+        <button v-on:click="syukkin">出金</button>
+      <h1>口座残高</h1>
+        <div>残高：{{ atm.zandaka }}</div>
+      <h1>取引記録</h1>
+        <div id="logs">
+          <div>日付：{{ logs.date }}</div>
+          <div>操作：{{ logs.sousa }}</div>
+          <div>金額：{{ logs.kingaku }}</div>
+        </div>
+    </section>
+
+    <script>
+      // const memoContainer = document.getElementById("logs")
+      // function makeMemos() {
+        // let time = new Date()
+        // memoContainer.innerHTML = ""
+        // for (let i = 0; i < memos.length; i++) {
+          // const div = document.createElement("div")
+          // div.textContent = `とりひき: ${app.zandaka} メモ:${memos[i].memo}  時刻:${memos[i].time}` // { memo:"" time: Date()}
+          // memoContainer.append(div)
+        // }
+      // }
+      // Vue
+      new Vue({
+        el: "#app1",
+        data: {
+          atm: {
+            price: 0,
+            zandaka: 0
+          },
+          logs: [{
+            time: function(e){ 
+            let date = new Date();
+            this.now = date.getHours
+            },
+            sousa: 入金,
+            kinngaku: 金額,
+          }],
+          mathods: {
+            nyukin: function () {
+              this.atm.price = nyuryokugaku;
+              this.zandaka += Number(this.nyuryokugaku);
+              logs.sousa = "入金"
+            },
+            syukkin: function () {
+              this.zandaka -= Number(this.nyuryokugaku);
+            }
+          }
+        },
+      });
+      
+    </script>
+  </body>
+</html>
